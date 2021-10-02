@@ -12,5 +12,5 @@ class TodoView(APIView):
     def get(self,request,format=None):
         todo=Todo.objects.all()
         todo =TodoSerializer(todo,many=True)
-        return Response(todo.data,status=status.HTTP_200_OK)
+        return Response({'data':'blah'},status=status.HTTP_200_OK)
 

@@ -5,19 +5,19 @@ import axios from "axios";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 function App() {
-  const [todos, setTodos] = useState();
+  const [todos, setTodos] = useState([]);
   useEffect(() => {
     axios
       .get("/api/todos")
       .then((res) => {
-        setTodos(res.data);
+        setTodos([res.data]);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
     <div>
       <h1>It worked</h1>
-      <>{todos && todos.map((todo) => todo.id)}</>
+      {todos.map((todo) => todo.data)}
     </div>
   );
 }
