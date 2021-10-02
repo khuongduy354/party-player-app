@@ -19,6 +19,6 @@ from django.urls import path, include,re_path
 from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('https://deploy-test-django-react.herokuapp.com/', TemplateView.as_view(template_name='index.html')),
+    path('', TemplateView.as_view(template_name='index.html')),
     path('api/', include('todo.urls')),    
 ]
