@@ -135,3 +135,16 @@ CORS_ORIGIN_ALLOW_ALL=True
 
 import django_heroku
 django_heroku.settings(locals())
+
+
+import dotenv
+import dj_database_url
+
+BASE_DIR = Path(__file__).resolve().root.root
+
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
