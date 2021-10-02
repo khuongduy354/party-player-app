@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -136,10 +135,9 @@ CORS_ORIGIN_ALLOW_ALL=True
 import django_heroku
 django_heroku.settings(locals())
 
+import dotenv
+import dj_database_url
 
-
-
-
-
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
