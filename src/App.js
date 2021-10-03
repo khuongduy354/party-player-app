@@ -21,7 +21,7 @@ function App() {
   const [roomCode, setRoomCode] = useState("");
 
   useEffect(() => {
-    fetch("/api/get-room" + "?roomCode=JRVTNI")
+    fetch("/api/get-room" + "?roomCode=NKRLNR")
       .then((res) => res.json())
       .then((data) => console.log(data.host));
   }, []);
