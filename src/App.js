@@ -19,6 +19,12 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 function App() {
   const [todos, setTodos] = useState([]);
   const [roomCode, setRoomCode] = useState("");
+
+  useEffect(() => {
+    fetch("/api/get-room" + "?roomCode=JRVTNI")
+      .then((res) => res.json())
+      .then((data) => console.log(data.host));
+  }, []);
   //  componentDidMount() {
   //     fetch("/api/user-in-room")
   //       .then((res) => res.json())
