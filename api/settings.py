@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'backend.apps.BackendConfig',
-    'todo.apps.TodoConfig'
-
+    'todo.apps.TodoConfig',
+    'spotify.apps.SpotifyConfig',
 ]
 
 MIDDLEWARE = [
