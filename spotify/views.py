@@ -41,23 +41,16 @@ def spotify_request_token(request):
     expires_in = response.get('expires_in')
     if not request.session.exists(request.session.session_key):
         request.session.create()
+        print('no session when receive response from spotify')
     session_id=request.session.session_key
-    print('session in django')
-    print(session_id)
     update_or_create_user_tokens(session_id=session_id, access_token=access_token,token_type=token_type,refresh_token=refresh_token,expires_in=expires_in) 
     return HttpResponseRedirect('http://localhost:3000/')
 
 class isSpotifyAuthView(APIView):
     def get(self,request,format=None):
-        print('session in tokens')
-
-        for token in SpotifyToken.objects.all():
-            print(token.user)
         print('session when check auth')
         print(self.request.session.session_key)
         isAuth=isSpotifyAuth(self.request.session.session_key)
-        print('authed?')
-        print(isAuth)
         return Response({'status':isAuth},status=status.HTTP_200_OK)
             
 

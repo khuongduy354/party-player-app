@@ -42,11 +42,10 @@ export default class Room extends Component {
     this.renderRoom = this.renderRoom.bind(this);
     this.getCurrentSong = this.getCurrentSong.bind(this);
   }
+
   componentDidMount() {
     this.getRoomDetails();
-  }
-  // 1. get detail when loaded
-  componentDidMount() {
+
     this.interval = setInterval(this.getCurrentSong, 1000);
   }
 
