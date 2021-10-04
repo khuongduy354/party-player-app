@@ -297,7 +297,6 @@ export default class Room extends Component {
   render() {
     return (
       <Grid container spacing={1}>
-        <h1>{this.state.isSpotifyAuth.toString()}</h1>
         {this.state.showSetting || this.renderRoom()}
         {this.state.isHost &&
           !this.state.showSetting &&
