@@ -44,7 +44,7 @@ def spotify_request_token(request):
         print('no session when receive response from spotify')
     session_id=request.session.session_key
     update_or_create_user_tokens(session_id=session_id, access_token=access_token,token_type=token_type,refresh_token=refresh_token,expires_in=expires_in) 
-    return HttpResponseRedirect('http://localhost:3000/')
+    return HttpResponseRedirect('https://deploy-test-django-react.herokuapp.com')
 
 class isSpotifyAuthView(APIView):
     def get(self,request,format=None):
